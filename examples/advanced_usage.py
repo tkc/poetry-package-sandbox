@@ -4,14 +4,7 @@
 """
 
 from simple_calculator import Calculator
-try:
-    # 注意: このインポートはsimple_calculatorパッケージに
-    # advancedモジュールが実装されている場合にのみ動作します
-    from simple_calculator.advanced import calculate_compound_interest
-    HAS_ADVANCED_FEATURES = True
-except ImportError:
-    HAS_ADVANCED_FEATURES = False
-    print("注意: advanced_cliモジュールが見つかりません。基本的な計算機能のみ使用します。")
+from simple_calculator.advanced import calculate_compound_interest
 
 
 class AdvancedCalculations:

@@ -1,20 +1,20 @@
 # Simple Calculator - 使用例コレクション
 
-このディレクトリは、`simple-calculator`パッケージの実践的な使用例を提供する学習リソースです。Poetryを使ったPythonパッケージの効果的な利用方法と、プロジェクトにどのように組み込むかを示しています。
+このディレクトリは、`simple-calculator`パッケージの実践的な使用例を提供する学習リソースです。Poetry を使った Python パッケージの効果的な利用方法と、プロジェクトにどのように組み込むかを示しています。
 
 ## このディレクトリの目的
 
-このexamplesディレクトリは以下の点を実演しています：
+この examples ディレクトリは以下の点を実演しています：
 
-- 外部パッケージとしてsimple-calculatorを利用する方法
-- 依存関係としてGitリポジトリから直接パッケージをインストールする方法
-- Poetryを使った独立した開発環境の構築と管理
+- 外部パッケージとして simple-calculator を利用する方法
+- 依存関係として Git リポジトリから直接パッケージをインストールする方法
+- Poetry を使った独立した開発環境の構築と管理
 - パッケージのさまざまな機能とエラー処理パターンの展示
-- Pydanticを活用した入力検証の実例
+- Pydantic を活用した入力検証の実例
 
 ## セットアップ方法
 
-このexamplesプロジェクトは独立したPoetryプロジェクトとなっており、メインのsimple-calculatorパッケージを依存関係として利用します：
+この examples プロジェクトは独立した Poetry プロジェクトとなっており、メインの simple-calculator パッケージを依存関係として利用します：
 
 ```bash
 # examplesディレクトリに移動
@@ -29,7 +29,7 @@ poetry run python basic_usage.py
 
 ## パッケージの参照方法
 
-このプロジェクトでは、GitHubリポジトリから直接パッケージを参照しています：
+このプロジェクトでは、GitHub リポジトリから直接パッケージを参照しています：
 
 ```toml
 # examples/pyproject.tomlの設定
@@ -44,7 +44,7 @@ simple-calculator = {git = "https://github.com/tkc/poetry-package-sandbox.git"}
 # simple-calculator = {git = "https://github.com/tkc/poetry-package-sandbox.git", rev = "コミットハッシュ"}
 ```
 
-これにより、パッケージが公式に公開されていなくても、GitHubから直接インストールして利用できることを示しています。
+これにより、パッケージが公式に公開されていなくても、GitHub から直接インストールして利用できることを示しています。
 
 ## 使用例の説明
 
@@ -57,7 +57,7 @@ simple-calculator = {git = "https://github.com/tkc/poetry-package-sandbox.git"}
 - 最後の結果の取得
 - 基本的なエラー処理
 
-### 2. advanced_api_usage.py
+### 2. advanced_usage.py
 
 高度な計算機能をプログラムに組み込む例を示しています：
 
@@ -70,7 +70,7 @@ simple-calculator = {git = "https://github.com/tkc/poetry-package-sandbox.git"}
 
 ## コード品質の維持
 
-このプロジェクトでは、ruffを使用してコードの品質を維持しています：
+このプロジェクトでは、ruff を使用してコードの品質を維持しています：
 
 ```bash
 # コードのフォーマット
@@ -82,18 +82,18 @@ poetry run ruff check .
 
 ## 応用例の作成
 
-独自の応用例を追加することで、simple-calculatorパッケージのさまざまな使い方を探求できます。新しい例を作成する際は：
+独自の応用例を追加することで、simple-calculator パッケージのさまざまな使い方を探求できます。新しい例を作成する際は：
 
-1. Pythonファイルを作成（例: `advanced_example.py`）
+1. Python ファイルを作成（例: `advanced_example.py`）
 2. パッケージをインポートして必要な機能を実装
 3. 適切なエラー処理を組み込む
 4. コメントで処理内容を説明
 
 ## 学習のヒント
 
-- 各サンプルコードの実装を詳しく見て、Calculatorクラスの使い方を理解しましょう
-- Pydanticの検証エラーがどのように発生し、処理されるかに注目してください
+- 各サンプルコードの実装を詳しく見て、Calculator クラスの使い方を理解しましょう
+- Pydantic の検証エラーがどのように発生し、処理されるかに注目してください
 - パッケージをさまざまな文脈で使用する方法を考えてみましょう
-- pyproject.tomlの設定を変更して、異なる参照方法を試してみてください
+- pyproject.toml の設定を変更して、異なる参照方法を試してみてください
 
-このexamplesディレクトリを通じて、モダンなPythonパッケージの効果的な利用方法を学ぶことができます。
+この examples ディレクトリを通じて、モダンな Python パッケージの効果的な利用方法を学ぶことができます。
