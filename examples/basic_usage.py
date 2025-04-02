@@ -3,7 +3,9 @@
 基本的な使用例 - simple-calculatorパッケージの基本機能を示します。
 """
 
+from pydantic import ValidationError
 from simple_calculator import Calculator
+
 
 def main():
     """simple-calculatorの基本的な使用例を示します。"""
@@ -33,19 +35,25 @@ def main():
     # エラー処理の例
     print("\n--- Error Handling Examples ---")
     try:
-        result = calc.divide(10, 0)
-    except ZeroDivisionError as e:
-        print(f"Error caught: {e}")
+        calc.divide(10, 0)
+    except ValidationError as e:
+        print(f"Validation error caught: {e.errors()[0]['msg']}")
+    except ValueError as e:
+        print(f"Value error caught: {e}")
 
     try:
-        result = calc.square_root(-9)
+        calc.square_root(-9)
+    except ValidationError as e:
+        print(f"Validation error caught: {e.errors()[0]['msg']}")
     except ValueError as e:
-        print(f"Error caught: {e}")
+        print(f"Value error caught: {e}")
 
     try:
-        result = calc.log(-5)
+        calc.log(-5)
+    except ValidationError as e:
+        print(f"Validation error caught: {e.errors()[0]['msg']}")
     except ValueError as e:
-        print(f"Error caught: {e}")
+        print(f"Value error caught: {e}")
 
 
 if __name__ == "__main__":

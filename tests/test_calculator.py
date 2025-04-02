@@ -1,7 +1,8 @@
 """Tests for the Calculator class."""
 
-import pytest
 import math
+
+import pytest
 from simple_calculator import Calculator
 
 
@@ -53,7 +54,9 @@ class TestCalculator:
 
     def test_square_root_negative(self):
         """Test square root of negative number raises an error."""
-        with pytest.raises(ValueError):
+        with pytest.raises(
+            ValueError, match="Cannot calculate square root of a negative number"
+        ):
             self.calculator.square_root(-1)
 
     def test_power(self):
@@ -72,16 +75,20 @@ class TestCalculator:
 
     def test_log_invalid(self):
         """Test log of invalid inputs raises errors."""
-        with pytest.raises(ValueError):
+        with pytest.raises(
+            ValueError, match="Cannot calculate logarithm of a non-positive number"
+        ):
             self.calculator.log(0)  # Log of 0 is undefined
 
-        with pytest.raises(ValueError):
+        with pytest.raises(
+            ValueError, match="Cannot calculate logarithm of a non-positive number"
+        ):
             self.calculator.log(-1)  # Log of negative number is undefined
 
-        with pytest.raises(ValueError):
+        with pytest.raises(ValueError, match="Invalid logarithm base"):
             self.calculator.log(10, 0)  # Base must be positive
 
-        with pytest.raises(ValueError):
+        with pytest.raises(ValueError, match="Invalid logarithm base"):
             self.calculator.log(10, 1)  # Base cannot be 1
 
     def test_last_result(self):

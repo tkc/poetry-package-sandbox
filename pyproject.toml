@@ -52,6 +52,7 @@ select = [
 # 無視するルール
 ignore = [
     "E501",  # line too long (handled by formatter)
+    "COM812", # Trailing comma missing (conflicts with formatter)
 ]
 
 # フォーマッターの設定

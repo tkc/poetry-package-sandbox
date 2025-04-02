@@ -1,7 +1,8 @@
 """Calculator module providing basic and scientific arithmetic operations."""
 
 import math
-from typing import Union, Optional
+from typing import Optional, Union
+
 from pydantic import BaseModel, Field, validator
 
 Number = Union[int, float]
@@ -9,37 +10,44 @@ Number = Union[int, float]
 
 class CalculationInput(BaseModel):
     """Base model for calculation inputs."""
-    a: Number = Field(..., description="First number in calculation")
-    b: Optional[Number] = Field(None, description="Second number in calculation (optional for some operations)")
 
-    @validator('a')
-    def validate_a(cls, v):
+    a: Number = Field(..., description="First number in calculation")
+    b: Optional[Number] = Field(
+        None, description="Second number in calculation (optional for some operations)"
+    )
+
+    @validator("a")
+    def validate_a(cls, v):  # noqa: N805
         return v
 
-    @validator('b')
-    def validate_b(cls, v):
+    @validator("b")
+    def validate_b(cls, v):  # noqa: N805
         return v
 
 
 class AddInput(CalculationInput):
     """Input model for addition."""
+
     pass
 
 
 class SubtractInput(CalculationInput):
     """Input model for subtraction."""
+
     pass
 
 
 class MultiplyInput(CalculationInput):
     """Input model for multiplication."""
+
     pass
 
 
 class DivideInput(CalculationInput):
     """Input model for division."""
-    @validator('b')
-    def validate_non_zero_divisor(cls, v):
+
+    @validator("b")
+    def validate_non_zero_divisor(cls, v):  # noqa: N805
         if v == 0:
             raise ValueError("Cannot divide by zero")
         return v
@@ -47,10 +55,11 @@ class DivideInput(CalculationInput):
 
 class SquareRootInput(BaseModel):
     """Input model for square root calculation."""
+
     a: Number = Field(..., description="Number to calculate square root of")
 
-    @validator('a')
-    def validate_non_negative(cls, v):
+    @validator("a")
+    def validate_non_negative(cls, v):  # noqa: N805
         if v < 0:
             raise ValueError("Cannot calculate square root of a negative number")
         return v
@@ -58,22 +67,24 @@ class SquareRootInput(BaseModel):
 
 class PowerInput(CalculationInput):
     """Input model for power calculation."""
+
     pass
 
 
 class LogInput(BaseModel):
     """Input model for logarithm calculation."""
+
     a: Number = Field(..., description="Number to calculate logarithm of")
     base: Number = Field(math.e, description="Logarithm base (default: e)")
 
-    @validator('a')
-    def validate_positive_number(cls, v):
+    @validator("a")
+    def validate_positive_number(cls, v):  # noqa: N805
         if v <= 0:
             raise ValueError("Cannot calculate logarithm of a non-positive number")
         return v
 
-    @validator('base')
-    def validate_valid_base(cls, v):
+    @validator("base")
+    def validate_valid_base(cls, v):  # noqa: N805
         if v <= 0 or v == 1:
             raise ValueError("Invalid logarithm base")
         return v
@@ -81,6 +92,7 @@ class LogInput(BaseModel):
 
 class CalculationResult(BaseModel):
     """Model for calculation results."""
+
     result: Number = Field(..., description="Result of the calculation")
     operation: str = Field(..., description="Operation performed")
 
@@ -186,7 +198,7 @@ class Calculator:
             a raised to the power of b
         """
         input_data = PowerInput(a=a, b=b)
-        result = input_data.a ** input_data.b
+        result = input_data.a**input_data.b
         self.last_result = CalculationResult(result=result, operation="power")
         return result
 
@@ -205,12 +217,12 @@ class Calculator:
         """
         # LogInput will validate positive input and valid base
         input_data = LogInput(a=a, base=base)
-        
+
         if input_data.base == math.e:
             result = math.log(input_data.a)
         else:
             result = math.log(input_data.a, input_data.base)
-            
+
         self.last_result = CalculationResult(result=result, operation="log")
         return result
 

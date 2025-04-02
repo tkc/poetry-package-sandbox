@@ -1,7 +1,7 @@
 """Command-line interface for the Simple Calculator."""
 
-import sys
 import argparse
+import sys
 from typing import List, Optional
 
 from .calculator import Calculator
@@ -29,7 +29,9 @@ def parse_args(args: Optional[List[str]] = None) -> argparse.Namespace:
     add_parser.add_argument("a", type=float, help="First number")
     add_parser.add_argument("b", type=float, help="Second number")
 
-    subtract_parser = subparsers.add_parser("subtract", help="Subtract second number from first")
+    subtract_parser = subparsers.add_parser(
+        "subtract", help="Subtract second number from first"
+    )
     subtract_parser.add_argument("a", type=float, help="First number")
     subtract_parser.add_argument("b", type=float, help="Second number")
 
@@ -37,7 +39,9 @@ def parse_args(args: Optional[List[str]] = None) -> argparse.Namespace:
     multiply_parser.add_argument("a", type=float, help="First number")
     multiply_parser.add_argument("b", type=float, help="Second number")
 
-    divide_parser = subparsers.add_parser("divide", help="Divide first number by second")
+    divide_parser = subparsers.add_parser(
+        "divide", help="Divide first number by second"
+    )
     divide_parser.add_argument("a", type=float, help="Dividend")
     divide_parser.add_argument("b", type=float, help="Divisor")
 
@@ -87,13 +91,13 @@ def main(args: Optional[List[str]] = None) -> None:
         elif parsed_args.operation == "log":
             result = calculator.log(parsed_args.a, parsed_args.base)
         else:
-            print(f"Unknown operation: {parsed_args.operation}")
+            print(f"Unknown operation: {parsed_args.operation}")  # noqa: T201
             sys.exit(1)
 
-        print(f"Result: {result}")
+        print(f"Result: {result}")  # noqa: T201
 
     except Exception as e:
-        print(f"Error: {str(e)}")
+        print(f"Error: {str(e)}")  # noqa: T201
         sys.exit(1)
 
 
