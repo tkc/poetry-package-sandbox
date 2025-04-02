@@ -1,4 +1,5 @@
 [tool.poetry]
+package-mode = false
 name = "simple-calculator-examples"
 version = "0.1.0"
 description = "Examples for the simple-calculator package"
@@ -7,7 +8,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-simple-calculator = {git = "https://github.com/tkc/poetry-package-sandbox.git"}
+simple-calculator = {git = "https://github.com/tkc/poetry-package-sandbox.git", tag = "v0.0.1"}
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.1.5"

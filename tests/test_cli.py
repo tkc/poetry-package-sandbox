@@ -64,6 +64,6 @@ def test_cli_error_handling(capsys):
     """Test the CLI error handling."""
     with pytest.raises(SystemExit):
         main(["divide", "5", "0"])
-    
+
     captured = capsys.readouterr()
     assert "Error: Cannot divide by zero" in captured.out
