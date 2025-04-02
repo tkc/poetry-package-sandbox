@@ -6,11 +6,8 @@ authors = ["Takeshi Iijima <takeshi.iijima@example.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.8"
-# ローカル開発時は相対パスで親ディレクトリを参照
-simple-calculator = {path = ".."}
-# 公開後は以下のように指定することもできます
-# simple-calculator = {git = "https://github.com/tkc/poetry-package-sandbox.git"}
+python = "^3.11"
+simple-calculator = {git = "https://github.com/tkc/poetry-package-sandbox.git"}
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.1.5"

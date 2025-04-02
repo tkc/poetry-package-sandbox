@@ -16,15 +16,6 @@ poetry install
 # 基本的な使用例
 poetry run python basic_usage.py
 
-# 高度な使用例
-poetry run python advanced_usage.py
-
-# バッチ処理の例
-poetry run python batch_processing.py
-
-# CLIの例（シェルスクリプト）
-poetry run bash cli_examples.sh
-
 # コードのフォーマットとリント
 poetry run ruff format .
 poetry run ruff check .
@@ -32,16 +23,7 @@ poetry run ruff check .
 
 ## パッケージのインストール方法
 
-親ディレクトリのパッケージは、ローカルのパスから依存関係として参照されます：
-
-```toml
-# examples/pyproject.toml内の設定
-[tool.poetry.dependencies]
-python = "^3.8"
-simple-calculator = {path = ".."}
-```
-
-GitHubから直接インストールする場合は、以下のように指定します：
+GitHub から直接インストールする場合は、以下のように指定します：
 
 ```toml
 [tool.poetry.dependencies]
@@ -59,37 +41,3 @@ simple-calculator = {git = "https://github.com/tkc/poetry-package-sandbox.git"}
 - 科学的な演算（平方根、べき乗、対数）
 - 最後の結果の取得
 - 基本的なエラー処理
-
-### 2. advanced_usage.py
-
-より複雑な計算を行うためにパッケージを使用する方法を示します：
-
-- 複利計算の実装と様々な複利計算頻度の比較
-- 二次方程式を解く方法の実装
-
-### 3. batch_processing.py
-
-CSVファイルを処理する実用的な例です：
-
-- CSVデータの読み込みと書き込み
-- 売上データの処理と税金計算
-- 計算結果を含む新しいCSVファイルの生成
-
-### 4. cli_examples.sh
-
-コマンドラインインターフェース（CLI）の使用方法を示すシェルスクリプトです：
-
-- 基本的なコマンドの使用方法
-- ヘルプの表示方法
-- エラー処理のデモンストレーション
-
-## 応用例
-
-これらの例を拡張して、独自のプロジェクトに役立てることができます：
-
-- 財務計算アプリケーション
-- データ処理パイプライン
-- 科学的計算ツール
-- カスタムCLIツール
-
-詳細は各スクリプトのコメントを参照してください。
