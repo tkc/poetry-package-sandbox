@@ -230,8 +230,8 @@ pydantic = "^2.4.2"
 [package.source]
 type = "git"
 url = "https://github.com/tkc/poetry-package-sandbox.git"
-reference = "v0.0.1"
-resolved_reference = "cbfe1cbe87d63559002383a21bc7def4a77706a9"
+reference = "v0.0.2"
+resolved_reference = "dc3ff4df581d95bc25b7084b14b4d831c6a1a7ef"
 
 [[package]]
 name = "typing-extensions"
@@ -261,4 +261,4 @@ typing-extensions = ">=4.12.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "c679c91f6ef3f66634aa46fdd80819477ae8a93b15ace1a7bb8ada32029afdad"
+content-hash = "3c2c5c202a58c572891226aac7ce1d555250b826345cf1c951e313b900b37db5"
