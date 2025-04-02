@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "simple-calculator-examples"
+version = "0.1.0"
+description = "Examples for the simple-calculator package"
+authors = ["Takeshi Iijima <takeshi.iijima@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+# ローカル開発時は相対パスで親ディレクトリを参照
+simple-calculator = {path = ".."}
+# 公開後は以下のように指定することもできます
+# simple-calculator = {git = "https://github.com/tkc/poetry-package-sandbox.git"}
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.1.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+target-version = "py38"
+line-length = 88
+
+# Linterのルール
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "F",  # pyflakes
+    "I",  # isort
+]
+
+# フォーマッターの設定
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
