@@ -9,144 +9,149 @@ from simple_calculator.advanced import calculate_compound_interest
 
 class AdvancedCalculations:
     """高度な計算機能を提供するクラス"""
-    
+
     def __init__(self):
         """基本計算機クラスのインスタンスを初期化"""
         self.calc = Calculator()
-    
+
     def compound_interest(self, principal, rate, time, compounds_per_year=1):
         """
         複利計算を行います。
-        
+
         Args:
             principal: 元金
             rate: 年利率 (例: 0.05 = 5%)
             time: 期間（年）
             compounds_per_year: 1年あたりの複利計算回数
-            
+
         Returns:
             最終的な金額
         """
-        # advanced_cliが利用可能ならそれを使う
-        if HAS_ADVANCED_FEATURES:
-            # advancedモジュールの関数を直接呼び出す
-            # 注意: この関数がadvanced.pyに存在する必要があります
-            try:
-                return calculate_compound_interest(principal, rate, time, compounds_per_year)
-            except NameError:
-                print("警告: calculate_compound_interest関数がadvancedモジュールに見つかりません。手動で計算します。")
-                # フォールバック実装へ
-        
-        # 利用できない場合や関数が見つからない場合は自分で実装
+        # advancedモジュールの関数を直接呼び出すことを試みる
+        # 注意: この関数が simple_calculator/advanced.py に存在する必要があります
+        try:
+            # advancedモジュールの関数を使用
+            return calculate_compound_interest(
+                principal, rate, time, compounds_per_year
+            )
+        except NameError:
+            # 関数が見つからない場合（インポートは成功したが関数がない場合など）
+            print(
+                "警告: calculate_compound_interest関数がadvancedモジュールに"
+                "見つかりません。手動で計算します。"
+            )
+            # フォールバック実装へ
+
+        # フォールバック実装 (advancedモジュールの関数が利用できない場合)
         rate_per_period = self.calc.divide(rate, compounds_per_year)
         one_plus_rate = self.calc.add(1, rate_per_period)
         total_compounds = self.calc.multiply(compounds_per_year, time)
         compound_factor = self.calc.power(one_plus_rate, total_compounds)
-        
+
         return self.calc.multiply(principal, compound_factor)
-    
+
     def quadratic_formula(self, a, b, c):
         """
         二次方程式 ax² + bx + c = 0 の解を求めます。
-        
+
         Args:
             a: x²の係数
             b: xの係数
             c: 定数項
-            
+
         Returns:
             解のタプル (x1, x2) または判別式が負の場合はNone
         """
         # 判別式を計算
         discriminant = self.calc.subtract(
-            self.calc.power(b, 2),
-            self.calc.multiply(4, self.calc.multiply(a, c))
+            self.calc.power(b, 2), self.calc.multiply(4, self.calc.multiply(a, c))
         )
-        
+
         # 判別式が0未満の場合は実数解なし
         if discriminant < 0:
             return None
-        
+
         # 解の公式: x = (-b ± √(b² - 4ac)) / 2a
         sqrt_discriminant = self.calc.square_root(discriminant)
-        
+
         denominator = self.calc.multiply(2, a)
-        
+
         # ゼロ除算を避ける
         if denominator == 0:
             raise ValueError("Coefficient 'a' cannot be zero for quadratic formula")
 
         x1 = self.calc.divide(
             self.calc.subtract(self.calc.multiply(b, -1), sqrt_discriminant),
-            denominator
+            denominator,
         )
-        
+
         x2 = self.calc.divide(
-            self.calc.add(self.calc.multiply(b, -1), sqrt_discriminant),
-            denominator
+            self.calc.add(self.calc.multiply(b, -1), sqrt_discriminant), denominator
         )
-        
+
         return (x1, x2)
-    
+
     def fibonacci(self, n):
         """
         フィボナッチ数列のn番目の数を計算します。
-        
+
         Args:
             n: 計算する項の番号（0から開始）
-            
+
         Returns:
             n番目のフィボナッチ数
         """
         if not isinstance(n, int) or n < 0:
-             raise ValueError("Input must be a non-negative integer")
+            raise ValueError("Input must be a non-negative integer")
         if n <= 0:
             return 0
         if n == 1:
             return 1
-            
+
         a, b = 0, 1
         for _ in range(2, n + 1):
             a, b = b, self.calc.add(a, b)
-        
+
         return b
-    
+
     def factorial(self, n):
         """
         階乗n!を計算します。
-        
+
         Args:
             n: 階乗を計算する非負整数
-            
+
         Returns:
             n!の値
         """
         if not isinstance(n, int) or n < 0:
-            raise ValueError("Cannot calculate factorial of negative number or non-integer")
-        
+            raise ValueError(
+                "Cannot calculate factorial of negative number or non-integer"
+            )
+
         if n <= 1:
             return 1
-            
+
         result = 1
         for i in range(2, n + 1):
             result = self.calc.multiply(result, i)
-            
+
         return result
 
 
 def main():
     """高度な計算機能の使用例を示します"""
     print("===== Simple Calculator - Advanced API Usage =====")
-    
+
     # 高度な計算クラスをインスタンス化
     adv_calc = AdvancedCalculations()
-    
+
     # 複利計算の例
     print("\n--- 複利計算の例 ---")
-    principal = 1000    # 元金1000ドル
-    rate = 0.05         # 年利5%
-    time = 10           # 10年間
-    
+    principal = 1000  # 元金1000ドル
+    rate = 0.05  # 年利5%
+    time = 10  # 10年間
+
     # 異なる複利計算頻度での計算
     try:
         annual = adv_calc.compound_interest(principal, rate, time, 1)
@@ -154,7 +159,7 @@ def main():
         quarterly = adv_calc.compound_interest(principal, rate, time, 4)
         monthly = adv_calc.compound_interest(principal, rate, time, 12)
         daily = adv_calc.compound_interest(principal, rate, time, 365)
-        
+
         print(f"元金: ${principal:.2f}")
         print(f"年利: {rate*100:.1f}%")
         print(f"期間: {time}年")
@@ -168,7 +173,7 @@ def main():
 
     # 二次方程式を解く例
     print("\n--- 二次方程式を解く例 ---")
-    
+
     # 例1: x² - 5x + 6 = 0 (解: x = 2, x = 3)
     a1, b1, c1 = 1, -5, 6
     try:
@@ -191,7 +196,7 @@ def main():
             sorted_roots = sorted(roots2)
             print(f"解: x = {sorted_roots[0]}, x = {sorted_roots[1]}")
         else:
-             print(f"方程式: {a2}x² + ({b2})x + {c2} = 0 には実数解がありません。")
+            print(f"方程式: {a2}x² + ({b2})x + {c2} = 0 には実数解がありません。")
     except Exception as e:
         print(f"二次方程式2の計算中にエラーが発生しました: {e}")
 
@@ -215,7 +220,7 @@ def main():
             print(f"フィボナッチ({i}) = {fib}")
     except Exception as e:
         print(f"フィボナッチ数列の計算中にエラーが発生しました: {e}")
-    
+
     # 階乗計算の例
     print("\n--- 階乗計算の例 ---")
     try:
@@ -223,13 +228,14 @@ def main():
             fact = adv_calc.factorial(i)
             print(f"{i}! = {fact}")
         # エラーケース
-        # print(f"(-1)! = {adv_calc.factorial(-1)}") 
+        # print(f"(-1)! = {adv_calc.factorial(-1)}")
     except ValueError as e:
-         print(f"階乗計算エラー: {e}")
+        print(f"階乗計算エラー: {e}")
     except Exception as e:
         print(f"階乗計算中に予期せぬエラーが発生しました: {e}")
 
     print("\nすべての例が完了しました。")
+
 
 if __name__ == "__main__":
     main()
