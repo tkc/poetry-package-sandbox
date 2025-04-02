@@ -6,8 +6,8 @@
 from simple_calculator import Calculator
 try:
     # 注意: このインポートはsimple_calculatorパッケージに
-    # advanced_cliモジュールが実装されている場合にのみ動作します
-    from simple_calculator.advanced_cli import calculate_compound_interest
+    # advancedモジュールが実装されている場合にのみ動作します
+    from simple_calculator.advanced import calculate_compound_interest
     HAS_ADVANCED_FEATURES = True
 except ImportError:
     HAS_ADVANCED_FEATURES = False
@@ -36,12 +36,12 @@ class AdvancedCalculations:
         """
         # advanced_cliが利用可能ならそれを使う
         if HAS_ADVANCED_FEATURES:
-            # advanced_cliモジュールの関数を直接呼び出す
-            # 注意: この関数がadvanced_cli.pyに存在する必要があります
+            # advancedモジュールの関数を直接呼び出す
+            # 注意: この関数がadvanced.pyに存在する必要があります
             try:
                 return calculate_compound_interest(principal, rate, time, compounds_per_year)
             except NameError:
-                print("警告: calculate_compound_interest関数がadvanced_cliに見つかりません。手動で計算します。")
+                print("警告: calculate_compound_interest関数がadvancedモジュールに見つかりません。手動で計算します。")
                 # フォールバック実装へ
         
         # 利用できない場合や関数が見つからない場合は自分で実装

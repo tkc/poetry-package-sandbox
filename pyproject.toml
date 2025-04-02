@@ -24,7 +24,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 calculate = "simple_calculator.cli:main"
-calc-advanced = "simple_calculator.advanced_cli:main"
+calc-advanced = "simple_calculator.advanced:main"
 
 [tool.ruff]
 target-version = "py38"
