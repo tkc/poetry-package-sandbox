@@ -1,0 +1,4 @@
+[console_scripts]
+calc-advanced=calculator.advanced:main
+calculate=calculator.cli:main
+

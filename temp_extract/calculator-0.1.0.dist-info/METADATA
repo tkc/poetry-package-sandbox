@@ -1,3 +1,28 @@
+Metadata-Version: 2.1
+Name: calculator
+Version: 0.1.0
+Summary: A simple calculator package with basic arithmetic operations
+Home-page: https://github.com/tkc/poetry-package-sandbox
+License: MIT
+Author: Takeshi Iijima
+Author-email: takeshi.iijima@example.com
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Project-URL: Repository, https://github.com/tkc/poetry-package-sandbox
+Description-Content-Type: text/markdown
+
 # Python Packaging Sample: Simple Calculator
 
 このリポジトリは、Poetryを使用したモダンなPythonパッケージの作成方法を示す例です。内部モジュール名と公開パッケージ名が異なる場合のベストプラクティスを含みます。
@@ -162,3 +187,4 @@ Pythonパッケージングに関する詳細情報:
 ## ライセンス
 
 このプロジェクトはMITライセンスの下で提供されています - 詳細はLICENSEファイルを参照してください。
+
