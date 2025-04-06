@@ -6,7 +6,10 @@ authors = ["Takeshi Iijima <takeshi.iijima@example.com>"]
 readme = "README.md"
 repository = "https://github.com/tkc/poetry-package-sandbox"
 license = "MIT"
-packages = [{include = "src"}]
+
+packages = [
+    { include = "simple-calculator", from = "src" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.11"
