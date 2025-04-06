@@ -4,7 +4,7 @@
 import argparse
 import sys
 
-from simple_calculator import Calculator
+from src import Calculator
 
 
 def calculate_compound_interest(principal, rate, time, compounds_per_year=1):
