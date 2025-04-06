@@ -28,7 +28,7 @@ pydantic = "^2.4.2"
 type = "git"
 url = "https://github.com/tkc/poetry-package-sandbox.git"
 reference = "HEAD"
-resolved_reference = "f88ed2b4ab5ce880164a9e83c34696daefefa9a6"
+resolved_reference = "5ceb9a8e58e6f7d7f7d2fbc64653bbd1bcf06ae7"
 
 [[package]]
 name = "numpy"

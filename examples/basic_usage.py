@@ -4,7 +4,7 @@
 """
 
 from pydantic import ValidationError
-from calculator import Calculator
+from calculator.calculator import Calculator
 
 
 def main():
