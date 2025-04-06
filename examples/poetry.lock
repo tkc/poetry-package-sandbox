@@ -12,6 +12,25 @@ files = [
 ]
 
 [[package]]
+name = "calculator"
+version = "0.1.0"
+description = "A simple calculator package with basic arithmetic operations"
+optional = false
+python-versions = "^3.11"
+files = []
+develop = false
+
+[package.dependencies]
+numpy = "^1.24.0"
+pydantic = "^2.4.2"
+
+[package.source]
+type = "git"
+url = "https://github.com/tkc/poetry-package-sandbox.git"
+reference = "HEAD"
+resolved_reference = "6d770b1ca80778c76c5865969c9d0c302eaf4715"
+
+[[package]]
 name = "numpy"
 version = "1.26.4"
 description = "Fundamental package for array computing in Python"
@@ -215,25 +234,6 @@ files = [
 ]
 
 [[package]]
-name = "simple-calculator"
-version = "0.1.0"
-description = "A simple calculator package with basic arithmetic operations"
-optional = false
-python-versions = "^3.11"
-files = []
-develop = false
-
-[package.dependencies]
-numpy = "^1.24.0"
-pydantic = "^2.4.2"
-
-[package.source]
-type = "git"
-url = "https://github.com/tkc/poetry-package-sandbox.git"
-reference = "HEAD"
-resolved_reference = "54f56209f6856e7edf9dab1a11f399f4864bfef0"
-
-[[package]]
 name = "typing-extensions"
 version = "4.13.1"
 description = "Backported and Experimental Type Hints for Python 3.8+"
@@ -261,4 +261,4 @@ typing-extensions = ">=4.12.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "a11d5efa7a22258f59d378e72504fdc894425e0e7d239a1bc05387a6c23d7d2b"
+content-hash = "c6af0a4d2a5fa40ef7e905a75dc90aba7af60c62407cf4e8cdae11724cb09263"

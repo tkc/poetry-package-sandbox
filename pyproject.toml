@@ -9,8 +9,9 @@ repository = "https://github.com/tkc/poetry-package-sandbox"
 license = "MIT"
 
 packages = [
-    { include = "calculator" },
+    { include = "src" },
 ]
+
 
 [tool.poetry.dependencies]
 python = "^3.11"
@@ -27,13 +28,13 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-calculate = "calculator.cli:main"
-calc-advanced = "calculator.advanced:main"
+calculate = "src.cli:main"
+calc-advanced = "src.advanced:main"
 
 [tool.ruff]
 target-version = "py38"
 line-length = 88
-src = ["calculator", "tests"]
+src = ["src", "tests"]
 
 # Linterのルール
 [tool.ruff.lint]
