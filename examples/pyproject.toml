@@ -9,28 +9,3 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 calculator = {git = "https://github.com/tkc/poetry-package-sandbox.git"}
-
-[tool.poetry.group.dev.dependencies]
-ruff = "^0.1.5"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
-
-[tool.ruff]
-target-version = "py38"
-line-length = 88
-
-# Linterのルール
-[tool.ruff.lint]
-select = [
-    "E",  # pycodestyle errors
-    "F",  # pyflakes
-    "I",  # isort
-]
-
-# フォーマッターの設定
-[tool.ruff.format]
-quote-style = "double"
-indent-style = "space"
-line-ending = "auto"
