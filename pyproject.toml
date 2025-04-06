@@ -9,7 +9,7 @@ repository = "https://github.com/tkc/poetry-package-sandbox"
 license = "MIT"
 
 packages = [
-    { include = "src" },
+    { include = "calculator" },
 ]
 
 
