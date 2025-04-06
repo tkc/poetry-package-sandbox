@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "simple-calculator"
+name = "calculator"
 version = "0.1.0"
 description = "A simple calculator package with basic arithmetic operations"
 authors = ["Takeshi Iijima <takeshi.iijima@example.com>"]
@@ -9,7 +9,7 @@ repository = "https://github.com/tkc/poetry-package-sandbox"
 license = "MIT"
 
 packages = [
-    { include = "src/**/*.py" },
+    { include = "calculator" },
 ]
 
 [tool.poetry.dependencies]
@@ -27,13 +27,13 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-calculate = "src.cli:main"
-calc-advanced = "src.advanced:main"
+calculate = "calculator.cli:main"
+calc-advanced = "calculator.advanced:main"
 
 [tool.ruff]
 target-version = "py38"
 line-length = 88
-src = ["src", "tests"]
+src = ["calculator", "tests"]
 
 # Linterのルール
 [tool.ruff.lint]
