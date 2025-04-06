@@ -13,7 +13,7 @@ develop = false
 type = "git"
 url = "https://github.com/tkc/poetry-package-sandbox.git"
 reference = "HEAD"
-resolved_reference = "3965f35082db8a3cd8146a3049dd20c7db15b515"
+resolved_reference = "0af70f3381e5cf1fbceacd533751de99f0fe0f00"
 
 [metadata]
 lock-version = "2.0"

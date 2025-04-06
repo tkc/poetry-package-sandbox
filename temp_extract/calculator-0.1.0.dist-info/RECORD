@@ -1,6 +1,6 @@
-cal/__init__.py,sha256=i2aQQysAD0oACwdPoS67YpwduCpSWmHn9xte3G_Ymeg,142
+cal/__init__.py,sha256=jr1k4TfDDLJn3Iv5HmdJS_vvyo93ohLOhWDTN10aJl0,92
 cal/calculator.py,sha256=KZ82-nNLWBORDDWgaHtbkbq1gdtSilvDqfSXXaNACrQ,577
-calculator.py,sha256=4xI8YS1udoWKVoxevY8KYLZzN7j7BGQGNQNz1r3iH6Y,334
+calculator/__init__.py,sha256=oqmvWwUSH8VNVZrAJ-rcIt5PjeVcLwLp6bTXG-v669g,364
 calculator-0.1.0.dist-info/LICENSE,sha256=koHZBRUTk7g7onkVeSkpydNVVGpb9EGP-MNclcVKIAU,1071
 calculator-0.1.0.dist-info/METADATA,sha256=OPl0b5O1h3AW1WjTLjk4cWLwqVQyPcfRzmigTB4VlGo,5663
 calculator-0.1.0.dist-info/WHEEL,sha256=iAMR_6Qh95yyjYIwRxyjpiFq4FhDPemrEV-SyWIQB3U,92

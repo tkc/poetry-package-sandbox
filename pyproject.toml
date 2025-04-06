@@ -10,7 +10,7 @@ license = "MIT"
 
 packages = [
     { include = "cal", from = "src" },
-    { include = "calculator.py", from = "src" }
+    { include = "calculator", from = "src" }
 ]
 
 
