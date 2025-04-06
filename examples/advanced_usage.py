@@ -3,8 +3,8 @@
 高度な計算機能のAPI使用例 - 高度な計算機能を直接Pythonコードから利用する方法を示します。
 """
 
-from simple_calculator import Calculator
-from simple_calculator.advanced import calculate_compound_interest
+from calculator import Calculator
+from calculator.advanced import calculate_compound_interest
 
 
 class AdvancedCalculations:
