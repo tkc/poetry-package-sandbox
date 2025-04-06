@@ -1,3 +1,4 @@
-from calculator import calculator
+from .calculator import Calculator
+from .advanced import calculate_compound_interest
 
-__all__ = ['calculator']
+__all__ = ['Calculator', 'calculate_compound_interest']
