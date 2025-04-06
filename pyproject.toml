@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "A simple calculator package with basic arithmetic operations"
 authors = ["Takeshi Iijima <takeshi.iijima@example.com>"]
 readme = "README.md"
+
 repository = "https://github.com/tkc/poetry-package-sandbox"
 license = "MIT"
 
@@ -26,13 +27,13 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-calculate = "simple_calculator.cli:main"
-calc-advanced = "simple_calculator.advanced:main"
+calculate = "src.cli:main"
+calc-advanced = "src.advanced:main"
 
 [tool.ruff]
 target-version = "py38"
 line-length = 88
-src = ["simple_calculator", "tests"]
+src = ["src", "tests"]
 
 # Linterのルール
 [tool.ruff.lint]
